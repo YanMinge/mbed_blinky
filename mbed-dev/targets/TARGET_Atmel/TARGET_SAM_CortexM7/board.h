@@ -6,45 +6,35 @@
  * This file includes the appropriate board header file according to the
  * defined board (parameter BOARD).
  *
- * Copyright (c) 2009-2015 Atmel Corporation. All rights reserved.
+ * Copyright (c) 2009-2018 Microchip Technology Inc. and its subsidiaries.
  *
  * \asf_license_start
  *
  * \page License
  *
- * Redistribution and use in source and binary forms, with or without
- * modification, are permitted provided that the following conditions are met:
+ * Subject to your compliance with these terms, you may use Microchip
+ * software and any derivatives exclusively with Microchip products.
+ * It is your responsibility to comply with third party license terms applicable
+ * to your use of third party software (including open source software) that
+ * may accompany Microchip software.
  *
- * 1. Redistributions of source code must retain the above copyright notice,
- *    this list of conditions and the following disclaimer.
- *
- * 2. Redistributions in binary form must reproduce the above copyright notice,
- *    this list of conditions and the following disclaimer in the documentation
- *    and/or other materials provided with the distribution.
- *
- * 3. The name of Atmel may not be used to endorse or promote products derived
- *    from this software without specific prior written permission.
- *
- * 4. This software may only be redistributed and used in connection with an
- *    Atmel microcontroller product.
- *
- * THIS SOFTWARE IS PROVIDED BY ATMEL "AS IS" AND ANY EXPRESS OR IMPLIED
- * WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
- * MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT ARE
- * EXPRESSLY AND SPECIFICALLY DISCLAIMED. IN NO EVENT SHALL ATMEL BE LIABLE FOR
- * ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
- * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS
- * OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
- * HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT,
- * STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN
- * ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
- * POSSIBILITY OF SUCH DAMAGE.
+ * THIS SOFTWARE IS SUPPLIED BY MICROCHIP "AS IS". NO WARRANTIES,
+ * WHETHER EXPRESS, IMPLIED OR STATUTORY, APPLY TO THIS SOFTWARE,
+ * INCLUDING ANY IMPLIED WARRANTIES OF NON-INFRINGEMENT, MERCHANTABILITY,
+ * AND FITNESS FOR A PARTICULAR PURPOSE. IN NO EVENT WILL MICROCHIP BE
+ * LIABLE FOR ANY INDIRECT, SPECIAL, PUNITIVE, INCIDENTAL OR CONSEQUENTIAL
+ * LOSS, DAMAGE, COST OR EXPENSE OF ANY KIND WHATSOEVER RELATED TO THE
+ * SOFTWARE, HOWEVER CAUSED, EVEN IF MICROCHIP HAS BEEN ADVISED OF THE
+ * POSSIBILITY OR THE DAMAGES ARE FORESEEABLE.  TO THE FULLEST EXTENT
+ * ALLOWED BY LAW, MICROCHIP'S TOTAL LIABILITY ON ALL CLAIMS IN ANY WAY
+ * RELATED TO THIS SOFTWARE WILL NOT EXCEED THE AMOUNT OF FEES, IF ANY,
+ * THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS SOFTWARE.
  *
  * \asf_license_stop
  *
  */
 /*
- * Support and FAQ: visit <a href="http://www.atmel.com/design-support/">Atmel Support</a>
+ * Support and FAQ: visit <a href="https://www.microchip.com/support/">Microchip Support</a>
  */
 
 #ifndef _BOARD_H_
@@ -147,13 +137,24 @@ extern "C" {
 #define SAMW25_XPLAINED_PRO        79  //!< SAMW25 Xplained Pro board.
 #define SAMC21_XPLAINED_PRO        80  //!< SAM C21 Xplained Pro board.
 #define SAMV71_XPLAINED_ULTRA      81  //!< SAMV71 Xplained Ultra board.
-#define SAML22_XPLAINED_PRO        86  //!< SAM L22 Xplained Pro board.
 #define ATMEGA328P_XPLAINED_MINI   82  //!< ATMEGA328P Xplained MINI board.
+#define ATMEGA328PB_XPLAINED_MINI  83  //!< ATMEGA328PB Xplained MINI board.
+#define SAMB11_XPLAINED_PRO        84  //!< SAM B11 Xplained Pro board.
+#define SAME70_XPLAINED            85  //!< SAME70 Xplained board.
+#define SAML22_XPLAINED_PRO        86  //!< SAM L22 Xplained Pro board.
+#define SAML22_XPLAINED_PRO_B      87  //!< SAM L22 Xplained Pro board.
+#define SAMR21ZLL_EK               88  //!< SAMR21ZLL-EK board.
+#define ATMEGA168PB_XPLAINED_MINI  89  //!< ATMEGA168PB Xplained MINI board.
+#define ATMEGA324PB_XPLAINED_PRO   90  //!< ATMEGA324PB Xplained Pro board.
+#define SAMB11CSP_XPLAINED_PRO     91  //!< SAM B11 CSP Xplained Pro board.
+#define SAMB11ZR_XPLAINED_PRO      92  //!< SAM B11 ZR Xplained Pro board.
+#define SAMR30_XPLAINED_PRO        93  //!< SAM R30 Xplained Pro board.
+#define SAMHA1G16A_XPLAINED_PRO    94  //!< SAM HA1G16A Xplained Pro board.
 #define SIMULATOR_XMEGA_A1         97  //!< Simulator for XMEGA A1 devices.
 #define AVR_SIMULATOR_UC3          98  //!< Simulator for the AVR UC3 device family.
 #define USER_BOARD                 99  //!< User-reserved board (if any).
 #define DUMMY_BOARD               100  //!< Dummy board to support board-independent applications (e.g. bootloader).
-#define SAME70_XPLAINED_ULTRA     101  //!< SAME70 Xplained Ultra board.
+#define SAMB11ZR_SENSOR_TAG       101  //!< SAMB11ZR sensor tag board
 //! @}
 
 /*! \name Extension Boards
@@ -193,7 +194,7 @@ extern "C" {
 #elif BOARD == XPLAIN
 #  include "xplain/xplain.h"
 #elif BOARD == STK600_MEGA
-/*No header-file to include*/
+  /*No header-file to include*/
 #elif BOARD == STK600_MEGA_RF
 #  include "stk600.h"
 #elif BOARD == ATMEGA256RFR2_XPLAINED_PRO
@@ -262,7 +263,7 @@ extern "C" {
 #  include "sam4s_ek2/sam4s_ek2.h"
 #  include "system_sam4s.h"
 #elif BOARD == MEGA_1284P_XPLAINED
-/*No header-file to include*/
+  /*No header-file to include*/
 #elif BOARD == ARDUINO_DUE_X
 #  include "arduino_due_x/arduino_due_x.h"
 #  include "system_sam3x.h"
@@ -276,18 +277,26 @@ extern "C" {
 #  include "samd21_xplained_pro/samd21_xplained_pro.h"
 #elif BOARD == SAMR21_XPLAINED_PRO
 #  include "samr21_xplained_pro/samr21_xplained_pro.h"
+#elif BOARD == SAMR30_XPLAINED_PRO
+#  include "samr30_xplained_pro/samr30_xplained_pro.h"
+#elif BOARD == SAMR21ZLL_EK
+#  include "samr21zll_ek/samr21zll_ek.h"
 #elif BOARD == SAMD11_XPLAINED_PRO
 #  include "samd11_xplained_pro/samd11_xplained_pro.h"
 #elif BOARD == SAML21_XPLAINED_PRO && defined(__SAML21J18A__)
 #  include "saml21_xplained_pro/saml21_xplained_pro.h"
 #elif BOARD == SAML22_XPLAINED_PRO
 #  include "saml22_xplained_pro/saml22_xplained_pro.h"
+#elif BOARD == SAML22_XPLAINED_PRO_B
+#  include "saml22_xplained_pro_b/saml22_xplained_pro_b.h"
 #elif BOARD == SAML21_XPLAINED_PRO && defined(__SAML21J18B__)
 #  include "saml21_xplained_pro_b/saml21_xplained_pro.h"
 #elif BOARD == SAMD10_XPLAINED_MINI
 #  include "samd10_xplained_mini/samd10_xplained_mini.h"
 #elif BOARD == SAMDA1_XPLAINED_PRO
 #  include "samda1_xplained_pro/samda1_xplained_pro.h"
+#elif BOARD == SAMHA1G16A_XPLAINED_PRO
+#  include "samha1g16a_xplained_pro/samha1g16a_xplained_pro.h"
 #elif BOARD == SAMC21_XPLAINED_PRO
 #  include "samc21_xplained_pro/samc21_xplained_pro.h"
 #elif BOARD == SAM4N_XPLAINED_PRO
@@ -296,8 +305,6 @@ extern "C" {
 #  include "samw25_xplained_pro/samw25_xplained_pro.h"
 #elif BOARD == SAMV71_XPLAINED_ULTRA
 #  include "samv71_xplained_ultra/samv71_xplained_ultra.h"
-#elif BOARD == SAME70_XPLAINED_ULTRA
-#  include "SAME70_XPLAINED/same70_xplained.h"
 #elif BOARD == MEGA1284P_XPLAINED_BC
 #  include "mega1284p_xplained_bc/mega1284p_xplained_bc.h"
 #elif BOARD == UC3_L0_QT600
@@ -332,8 +339,6 @@ extern "C" {
 #  include "sam4cp16bmb/sam4cp16bmb.h"
 #elif BOARD == ATPL230AMB
 #  include "atpl230amb/atpl230amb.h"
-#elif BOARD == SIMULATOR_XMEGA_A1
-#  include "simulator/xmega_a1/simulator_xmega_a1.h"
 #elif BOARD == XMEGA_C3_XPLAINED
 #  include "xmega_c3_xplained/xmega_c3_xplained.h"
 #elif BOARD == XMEGA_RF233_ZIGBIT
@@ -348,15 +353,33 @@ extern "C" {
 #  include "xmega_rf212b_zigbit/xmega_rf212b_zigbit.h"
 #elif BOARD == SAM4E_XPLAINED_PRO
 #  include "sam4e_xplained_pro/sam4e_xplained_pro.h"
+#elif BOARD == ATMEGA328P_XPLAINED_MINI
+#  include "atmega328p_xplained_mini/atmega328p_xplained_mini.h"
+#elif BOARD == ATMEGA328PB_XPLAINED_MINI
+#  include "atmega328pb_xplained_mini/atmega328pb_xplained_mini.h"
+#elif BOARD == SAMB11_XPLAINED_PRO
+#  include "samb11_xplained_pro/samb11_xplained_pro.h"
+#elif BOARD == SAME70_XPLAINED
+#  include "same70_xplained/same70_xplained.h"
+#elif BOARD == ATMEGA168PB_XPLAINED_MINI
+#  include "atmega168pb_xplained_mini/atmega168pb_xplained_mini.h"
+#elif BOARD == ATMEGA324PB_XPLAINED_PRO
+#  include "atmega324pb_xplained_pro/atmega324pb_xplained_pro.h"
+#elif BOARD == SAMB11CSP_XPLAINED_PRO
+#  include "samb11csp_xplained_pro/samb11csp_xplained_pro.h"
+#elif BOARD == SAMB11ZR_XPLAINED_PRO
+#  include "samb11zr_xplained_pro/samb11zr_xplained_pro.h"
+#elif BOARD == SIMULATOR_XMEGA_A1
+#  include "simulator/xmega_a1/simulator_xmega_a1.h"
 #elif BOARD == AVR_SIMULATOR_UC3
 #  include "avr_simulator_uc3/avr_simulator_uc3.h"
 #elif BOARD == USER_BOARD
-// User-reserved area: #include the header file of your board here (if any).
+ // User-reserved area: #include the header file of your board here (if any).
 #  include "user_board.h"
-#elif BOARD == ATMEGA328P_XPLAINED_MINI
-#  include "atmega328p_xplained_mini/atmega328p_xplained_mini.h"
 #elif BOARD == DUMMY_BOARD
 #  include "dummy/dummy_board.h"
+#elif BOARD == SAMB11ZR_SENSOR_TAG
+#  include "samb11zr_sensor_tag/samb11zr_sensor_tag.h"
 #else
 #  error No known Atmel board defined
 #endif
@@ -380,8 +403,8 @@ extern "C" {
 #  elif EXT_BOARD == SECURITY_XPLAINED
 #    include "security_xplained.h"
 #  elif EXT_BOARD == USER_EXT_BOARD
-// User-reserved area: #include the header file of your extension board here
-// (if any).
+    // User-reserved area: #include the header file of your extension board here
+    // (if any).
 #  endif
 #endif
 

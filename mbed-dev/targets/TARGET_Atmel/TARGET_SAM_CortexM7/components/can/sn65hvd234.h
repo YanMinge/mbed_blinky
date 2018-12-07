@@ -1,7 +1,7 @@
 /**
  * \file
  *
- * \brief Serial USART service configuration.
+ * \brief CAN transceiver SN65HVD234 driver.
  *
  * Copyright (c) 2011-2018 Microchip Technology Inc. and its subsidiaries.
  *
@@ -34,18 +34,30 @@
  * Support and FAQ: visit <a href="https://www.microchip.com/support/">Microchip Support</a>
  */
 
-#ifndef CONF_USART_SERIAL_H_INCLUDED
-#define CONF_USART_SERIAL_H_INCLUDED
+#ifndef CAN_SN65HVD234_H
+#define CAN_SN65HVD234_H
 
-/** UART Interface */
-#define CONF_UART            CONSOLE_UART
-/** Baudrate setting */
-#define CONF_UART_BAUDRATE   (115200UL)
-/** Character length setting */
-#define CONF_UART_CHAR_LENGTH  US_MR_CHRL_8_BIT
-/** Parity setting */
-#define CONF_UART_PARITY     US_MR_PAR_NO
-/** Stop bits setting */
-#define CONF_UART_STOP_BITS    US_MR_NBSTOP_1_BIT
+#include "board.h"
 
-#endif/* CONF_USART_SERIAL_H_INCLUDED */
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+typedef struct {
+	/** PIO dedicated to RS pin index. */
+	uint32_t pio_rs_idx;
+	/** PIO dedicated to EN pin index. */
+	uint32_t pio_en_idx;
+} sn65hvd234_ctrl_t;
+
+void sn65hvd234_set_rs(sn65hvd234_ctrl_t *p_component, uint32_t pin_idx);
+void sn65hvd234_set_en(sn65hvd234_ctrl_t *p_component, uint32_t pin_idx);
+void sn65hvd234_enable(sn65hvd234_ctrl_t *p_component);
+void sn65hvd234_disable(sn65hvd234_ctrl_t *p_component);
+void sn65hvd234_enable_low_power(sn65hvd234_ctrl_t *p_component);
+void sn65hvd234_disable_low_power(sn65hvd234_ctrl_t *p_component);
+
+#ifdef __cplusplus
+}
+#endif
+#endif /* CAN_SN65HVD234_H */

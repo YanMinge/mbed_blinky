@@ -1,9 +1,12 @@
-/**
+/*****************************************************************************
+ *
  * \file
  *
- * \brief Serial USART service configuration.
+ * \brief Virtual memory configuration file.
  *
- * Copyright (c) 2011-2018 Microchip Technology Inc. and its subsidiaries.
+ * This file contains the possible external configuration of the AT45DBX.
+ *
+ * Copyright (c) 2014-2018 Microchip Technology Inc. and its subsidiaries.
  *
  * \asf_license_start
  *
@@ -29,23 +32,23 @@
  *
  * \asf_license_stop
  *
- */
+ ******************************************************************************/
 /*
  * Support and FAQ: visit <a href="https://www.microchip.com/support/">Microchip Support</a>
  */
 
-#ifndef CONF_USART_SERIAL_H_INCLUDED
-#define CONF_USART_SERIAL_H_INCLUDED
 
-/** UART Interface */
-#define CONF_UART            CONSOLE_UART
-/** Baudrate setting */
-#define CONF_UART_BAUDRATE   (115200UL)
-/** Character length setting */
-#define CONF_UART_CHAR_LENGTH  US_MR_CHRL_8_BIT
-/** Parity setting */
-#define CONF_UART_PARITY     US_MR_PAR_NO
-/** Stop bits setting */
-#define CONF_UART_STOP_BITS    US_MR_NBSTOP_1_BIT
+#ifndef _CONF_VIRTUAL_MEM_H_
+#define _CONF_VIRTUAL_MEM_H_
 
-#endif/* CONF_USART_SERIAL_H_INCLUDED */
+#ifndef VMEM_NB_SECTOR
+#warning Enter the size of Virtual Memory on internal RAM (unit 512B), using default value 4KB
+//! Size of Virtual Memory on internal RAM (unit 512B)
+#define VMEM_NB_SECTOR        8 //4KB
+#endif
+
+//! Choose which interface to set up, USB or RAM
+// #define ACCESS_USB         true
+// #define ACCESS_MEM_TO_RAM  true
+
+#endif // _CONF_VIRTUAL_MEM_H_

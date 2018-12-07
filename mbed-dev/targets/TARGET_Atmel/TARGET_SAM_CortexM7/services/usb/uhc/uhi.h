@@ -1,9 +1,9 @@
 /**
  * \file
  *
- * \brief Serial USART service configuration.
+ * \brief Common API for USB Host Interface
  *
- * Copyright (c) 2011-2018 Microchip Technology Inc. and its subsidiaries.
+ * Copyright (c) 2014-2018 Microchip Technology Inc. and its subsidiaries.
  *
  * \asf_license_start
  *
@@ -34,18 +34,67 @@
  * Support and FAQ: visit <a href="https://www.microchip.com/support/">Microchip Support</a>
  */
 
-#ifndef CONF_USART_SERIAL_H_INCLUDED
-#define CONF_USART_SERIAL_H_INCLUDED
+#ifndef _UHI_H_
+#define _UHI_H_
 
-/** UART Interface */
-#define CONF_UART            CONSOLE_UART
-/** Baudrate setting */
-#define CONF_UART_BAUDRATE   (115200UL)
-/** Character length setting */
-#define CONF_UART_CHAR_LENGTH  US_MR_CHRL_8_BIT
-/** Parity setting */
-#define CONF_UART_PARITY     US_MR_PAR_NO
-/** Stop bits setting */
-#define CONF_UART_STOP_BITS    US_MR_NBSTOP_1_BIT
+#include "conf_usb_host.h"
+#include "usb_protocol.h"
+#include "uhc.h"
 
-#endif/* CONF_USART_SERIAL_H_INCLUDED */
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+/**
+ * \ingroup usb_host_group
+ * \defgroup uhi_group USB Host Interface (UHI)
+ * The UHI provides a common API for all classes,
+ * and this is used by UHC for the main control of USB host interface.
+ * @{
+ */
+
+/**
+ * \brief UHI API.
+ *
+ * The callbacks within this structure are called only by
+ * USB Host Controller (UHC)
+ */
+typedef struct {
+	/**
+	 * \brief Install interface
+	 * Allocate interface endpoints if supported.
+	 *
+	 * \param uhc_device_t    Device to request
+	 *
+	 * \return status of the install
+	 */
+	uhc_enum_status_t (*install)(uhc_device_t*);
+
+	/**
+	 * \brief Enable the interface.
+	 *
+	 * Enable a USB interface corresponding to UHI.
+	 *
+	 * \param uhc_device_t    Device to request
+	 */
+	void (*enable)(uhc_device_t*);
+
+	/**
+	 * \brief Uninstall the interface (if installed)
+	 *
+	 * \param uhc_device_t    Device to request
+	 */
+	void (*uninstall)(uhc_device_t*);
+
+	/**
+	 * \brief Signal that a SOF has occurred
+	 */
+	void (*sof_notify)(bool b_micro);
+} uhi_api_t;
+
+//@}
+
+#ifdef __cplusplus
+}
+#endif
+#endif // _UHI_H_

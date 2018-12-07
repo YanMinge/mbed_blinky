@@ -6298,7 +6298,7 @@
         "default_lib": "std",
         "device_name": "ATSAMG55J19"
     },
-    "SAME70Q21": {
+    "SAME70Q20B": {
         "inherits": ["Target"],
         "core": "Cortex-M7",
         "extra_labels": [
@@ -6307,8 +6307,8 @@
             "SAME70"
         ],
         "macros_add": [
-            "__SAME70Q21__",
-            "BOARD=101",
+            "__SAME70Q20B__",
+            "BOARD=85",
             "I2C_MASTER_CALLBACK_MODE=true",
             "EXTINT_CALLBACK_MODE=true",
             "USART_CALLBACK_MODE=true",
@@ -6326,7 +6326,7 @@
         ],
         "release_versions": ["2"],
         "default_lib": "std",
-        "device_name": "ATSAME70Q21"
+        "device_name": "ATSAME70Q20B"
     },
     "MCU_NRF51_UNIFIED": {
         "inherits": ["Target"],

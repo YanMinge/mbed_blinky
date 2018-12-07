@@ -123,8 +123,8 @@ uint32_t us_ticker_read()
     if (!us_ticker_inited)
         us_ticker_init();
 
-    uint32_t counter_value=0;
-    uint16_t tickerbefore=0;
+    volatile uint32_t counter_value=0;
+    volatile uint16_t tickerbefore=0;
     do {
         tickerbefore=us_ticker_16bit_counter;
         counter_value=tc_read_cv(TICKER_COUNTER_uS, TICKER_COUNTER_CHANNEL0);
@@ -135,7 +135,7 @@ uint32_t us_ticker_read()
 
 void us_ticker_set_interrupt(timestamp_t timestamp)
 {
-    uint32_t cur_time;
+    volatile uint32_t cur_time;
     int32_t delta;
 
     cur_time = us_ticker_read();
